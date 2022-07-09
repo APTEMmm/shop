@@ -9,10 +9,6 @@ class ProductCollection
     disk: { dir: 'disks', class: Disk }
   }
 
-  def initialize(products = [])
-    @products = products
-  end
-
   def self.from_dir(dir_path)
     products = []
     PRODUCT_TYPES.each do |type, hash|
@@ -22,7 +18,11 @@ class ProductCollection
         products << product_class.from_file(path)
       end
     end
-    self.new(products)
+    new(products)
+  end
+
+  def initialize(products = [])
+    @products = products
   end
 
   def to_a

@@ -12,14 +12,14 @@ class Disk < Product
   end
 
   def self.from_file(path)
-    line = File.readlines("#{path}", chomp: true)
+    lines = File.readlines("#{path}", chomp: true)
     Disk.new(
-      title: line[0],
-      singer: line[1],
-      genre: line[2],
-      year: line[3],
-      price: line[4],
-      amount: line[5]
+      title: lines[0],
+      singer: lines[1],
+      genre: lines[2],
+      year: lines[3],
+      price: lines[4],
+      amount: lines[5]
     )
   end
 
