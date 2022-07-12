@@ -5,7 +5,7 @@ class Film < Product
 
   def self.from_file(file_path)
     lines = File.readlines(file_path, chomp: true)
-    Film.new(
+    new(
       title: lines[0],
       director: lines[1],
       year: lines[2],

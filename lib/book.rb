@@ -12,7 +12,7 @@ class Book < Product
 
   def self.from_file(file_path)
     lines = File.readlines(file_path, chomp: true)
-    self.new(
+    new(
       title: lines[0],
       genre: lines[1],
       author: lines[2],
