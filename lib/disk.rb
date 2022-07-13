@@ -3,14 +3,6 @@ require_relative 'product'
 class Disk < Product
   attr_accessor :title, :singer, :genre, :year
 
-  def initialize(params)
-    super
-    @title = params[:title]
-    @singer = params[:singer]
-    @genre = params[:genre]
-    @year = params[:year]
-  end
-
   def self.from_file(path)
     lines = File.readlines("#{path}", chomp: true)
     new(
@@ -21,6 +13,14 @@ class Disk < Product
       price: lines[4],
       amount: lines[5]
     )
+  end
+
+  def initialize(params)
+    super
+    @title = params[:title]
+    @singer = params[:singer]
+    @genre = params[:genre]
+    @year = params[:year]
   end
 
   def info

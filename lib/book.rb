@@ -3,13 +3,6 @@ require_relative 'product'
 class Book < Product
   attr_accessor :title, :genre, :author
 
-  def initialize(params)
-    super
-    @title = params[:title]
-    @genre = params[:genre]
-    @author = params[:author]
-  end
-
   def self.from_file(file_path)
     lines = File.readlines(file_path, chomp: true)
     new(
@@ -19,6 +12,13 @@ class Book < Product
       price: lines[3],
       amount: lines[4]
     )
+  end
+
+  def initialize(params)
+    super
+    @title = params[:title]
+    @genre = params[:genre]
+    @author = params[:author]
   end
 
   def info
